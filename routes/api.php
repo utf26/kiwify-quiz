@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\QuestionController;
@@ -17,11 +16,7 @@ use App\Http\Controllers\QuestionController;
 |
 */
 
-/*
-TODO: The following line of code is added for development and testing purposes only.
-It logs in a default user with ID 1 for testing authentication and should be removed before deploying the application to production.
-*/
-Auth::loginUsingId(1);
+require __DIR__.'/auth.php';
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/quizzes', [QuizController::class, 'index']);
